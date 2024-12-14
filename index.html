@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMI calculater</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="download.jpg">
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="form box">
+            <p>Loan amunt(₹)</p>
+            <input type="number" placeholder="Enter loan amount" id="amount" min="10000" max="10000000" maxlength="8" required class="input">
+            <p>interest rate(%)</p>
+            <input type="number" placeholder="Enter interest rate" id="interest" min="1" max="99" maxlength="4" required step="0" class="input">
+            <p>Loan tenure(yr/mo)</p>
+            <input type="number" placeholder="Enter loan duration" id="Loantenure" min="1" max="360" maxlength="3" required class="input">
+            <div class="tenure">
+                <input type="radio" name="btn" id="year" checked>
+                <label for="year">yearly</label>
+                <input type="radio" name="btn" id="month" >
+                <label for="month">monthly</label>
+            </div>
+            <button class="calculate" id="calculate"> calculate</button>
+          
+
+
+        </div>
+        <div class="box output">
+            <p>EMI</p>
+            <div class="emi"></div>
+            <p>total interest</p>
+            <div class="totalinterest"></div>
+            <p>total payment</p>
+            <div id="totalpayment"></div>
+            
+        </div>
+    </div>
+</div>
+    
+
+
+
+<script>
+    document.getElementById("calculate").addEventListener("click", function() {
+        // Get the input values
+        const amount = parseFloat(document.getElementById("amount").value);
+        const interestRate = parseFloat(document.getElementById("interest").value);
+        const loanTenure = parseInt(document.getElementById("Loantenure").value);
+        const isYearly = document.getElementById("year").checked;
+    
+        // Validate inputs
+        if (isNaN(amount) || isNaN(interestRate) || isNaN(loanTenure) || amount <= 0 || interestRate <= 0 || loanTenure <= 0) {
+            alert("Please fill out all fields with valid values.");
+            return;
+        }
+    
+        // Convert tenure to months if it's in years
+        let months = loanTenure;
+        if (isYearly) {
+            months *= 12; // Convert years to months
+        }
+    
+        // Calculate the EMI using the formula
+        const monthlyInterestRate = interestRate / 100 / 12; // Convert annual interest rate to monthly rate
+        const emi = (amount * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, months)) / (Math.pow(1 + monthlyInterestRate, months) - 1);
+        
+        // Calculate the total interest and total payment
+        const totalPayment = emi * months;
+        const totalInterest = totalPayment - amount;
+    
+        // Show the results in the output divs
+        document.querySelector(".emi").textContent = `₹${emi.toFixed(2)}`;
+        document.querySelector(".totalinterest").textContent = `₹${totalInterest.toFixed(2)}`;
+        document.getElementById("totalpayment").textContent = `₹${totalPayment.toFixed(2)}`;
+    });
+    </script>
+    
+</body>
+</html>

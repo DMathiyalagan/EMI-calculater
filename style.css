@@ -1,0 +1,135 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-transform: capitalize;
+    transition: 2s linear;
+}
+.container{
+    min-height: 100vh;
+    background-image: url(download\ \(1\).jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    padding-bottom: 20px;
+
+}
+.container .row{
+    width: 800px;
+    border-radius: 20px;
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    padding: 20px;
+    backdrop-filter: blur(8px);
+    border:1px solid rgb(221, 170, 170);
+    box-shadow: 0 5px 15px rgb(90, 83, 83);
+
+}
+.container .row .box{
+    flex: 1 1 300px;
+}
+.container .row .output{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    gap: 15px;
+    padding: 30px 20px;
+    border:1px solid rgb(221, 170, 170);
+    box-shadow: 0 5px 15px rgb(78, 74, 74);
+}
+.container .row .output p{
+    font-size: 20px;
+    color: black;
+
+}
+.container .row .output div{
+    font-size: 20px;
+    color: rgb(47, 0, 255);
+    
+}
+.container .row .form .input{
+    width: 100%;
+    background: none;
+    border-radius: 10px;
+    background: rgba(255,255,255,.2);
+    border: 1px solid rgba(196, 167, 167, 0.86);
+    font-size: 20px;
+    color: rgb(63, 63, 80);
+    margin-top: 10px;
+    margin-bottom: 20px;    
+    padding: 8px;
+}
+.container .row .form .input::placeholder{
+    color: #555;
+    text-transform: none;
+}
+.container .row .form p{
+    font-size: 20px;
+    color: rgb(3, 3, 3);
+}
+.container .row .form .tenure input[type="radio"]{
+    display: none;
+}
+.container .row .form .tenure{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.container .row .form .tenure label{
+    font-size: 20px;
+    border-radius: 10px;
+    flex: 1;
+    background-color: rgba(0,0,0,.2);
+    border: 1px solid rgba(0,0,0,.2);
+    text-align: center;
+    cursor: pointer;
+
+}
+.container .row .form  .calculate{
+    width: 100%;
+    padding: 5px;
+    font-size: 20px;
+    margin-top: 10px;
+    border-radius: 10px;
+    background-color: rgba(228, 72, 72, 0.647);
+    box-shadow: 0 5PX 8PX rgb(102, 95, 95);
+    cursor: pointer;
+    transform: 5s;
+    
+    
+}
+.container .row .form  .calculate:hover{
+    background-color: rgba(159, 123, 123, 0.901);
+}
+.container .row .form  .calculate:hover::after{
+
+    transform: 0.5s;
+}
+.container .row .form .tenure label:hover{
+    background-color: #a92727;
+    transform: 0.5s;
+    
+}
+.container .row .form .tenure label:hover::after{
+    background-color: #a92727;
+    transform: 0.5s;
+}
+
+
+
+
+/*------------css for small screens--------------*/
+
+
+@media only screen and (max-width: 600px){
+    
+}
